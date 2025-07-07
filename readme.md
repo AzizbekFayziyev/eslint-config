@@ -201,8 +201,8 @@ npx lint-staged
 ```json
 "scripts": {
     "format": "prettier --write .",
-		"format:check": "prettier --check .",
-		"eslint": "eslint . --ext .js,.ts,.tsx,.jsx --fix"
+    "format:check": "prettier --check .",
+    "eslint": "eslint . --ext .js,.ts,.tsx,.jsx --fix"
 }
 ```
 
