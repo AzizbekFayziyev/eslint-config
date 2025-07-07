@@ -162,14 +162,14 @@ submodules/
 ### Инициализируй Husky
 
 ```bash
-npx husky install
+npx husky
 ```
 
 ### Добавь `prepare` скрипт в `package.json`
 
 ```json
 "scripts": {
-  "prepare": "husky install"
+  "prepare": "husky"
 }
 ```
 
