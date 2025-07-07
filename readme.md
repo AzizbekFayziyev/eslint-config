@@ -200,9 +200,9 @@ npx lint-staged
 
 ```json
 "scripts": {
-  "lint": "eslint . --ext .ts,.tsx,.js",
-  "lint:fix": "eslint . --ext .ts,.tsx,.js --fix",
-  "format": "prettier --write ."
+    "format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"eslint": "eslint . --ext .js,.ts,.tsx,.jsx --fix"
 }
 ```
 
