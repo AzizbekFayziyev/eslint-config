@@ -10,7 +10,7 @@
 Установи все нужные пакеты:
 
 ```
-npm i -D eslint prettier husky lint-staged
+npm i -D eslint@8.57.1 prettier husky lint-staged
 ```
 
 ```
