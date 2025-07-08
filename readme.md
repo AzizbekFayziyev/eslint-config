@@ -123,7 +123,7 @@ static/
 
 ---
 
-### `prettier.config.js`
+### `prettier.config.cjs`
 
 ```js
 /** @type {import("prettier").Config} */
