@@ -111,6 +111,7 @@ build/
 *.log
 *.tmp
 .temp/
+migrations/
 
 public/
 static/
@@ -153,6 +154,7 @@ coverage
 .env
 *.lock
 submodules/
+migrations/
 ```
 
 ---
