@@ -1,98 +1,97 @@
+# ⚙️ ESLint, Prettier & Husky: Full Integration (TypeScript + Next.js)
 
-# ⚙️ ESLint, Prettier и Husky: Полная интеграция (TypeScript + Next.js)
-
-Полное пошаговое руководство по подключению ESLint, Prettier и Husky к проекту с использованием TypeScript и Next.js.
+A complete step-by-step guide to integrating **ESLint**, **Prettier**, and **Husky** in a project using **TypeScript** and **Next.js**.
 
 ---
 
-## 📦 Шаг 1: Установка зависимостей
+## 📦 Step 1: Install Dependencies
 
-Установи все нужные пакеты:
+Install all required packages:
 
-```
+```bash
 npm i -D eslint@8.57.1 prettier husky lint-staged
 ```
 
-```
+```bash
 npm i -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-```
+```bash
 npm i -D eslint-config-airbnb-base eslint-plugin-import
 ```
 
-```
+```bash
 npm i -D eslint-config-prettier eslint-plugin-prettier eslint-config-next
 ```
 
 ---
 
-## 🛠️ Шаг 2: Конфигурационные файлы
+## 🛠️ Step 2: Configuration Files
 
 ### `.eslintrc.json`
 
 ```json
 {
-	"env": {
-		"es2021": true,
-		"node": true
-	},
-	"extends": [
-		"airbnb-base",
-		"plugin:@typescript-eslint/recommended",
-		"next/core-web-vitals",
-		"plugin:prettier/recommended",
-		"prettier"
-	],
-	"parser": "@typescript-eslint/parser",
-	"plugins": ["@typescript-eslint", "import"],
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"sourceType": "module",
-		"project": "./tsconfig.json"
-	},
-	"rules": {
-		"no-console": "off",
-		"no-void": "off",
-		"import/extensions": "off",
-		"no-unused-vars": [
-			"warn",
-			{
-				"argsIgnorePattern": "^_"
-			}
-		],
-		"func-names": "off",
-		"consistent-return": "off",
-		"no-restricted-syntax": "off",
-		"@typescript-eslint/indent": "off",
-		"class-methods-use-this": "off",
-		"@typescript-eslint/no-unused-vars": [
-			"warn",
-			{
-				"argsIgnorePattern": "^_"
-			}
-		],
-		"@typescript-eslint/explicit-member-accessibility": "off",
-		"@typescript-eslint/no-explicit-any": "error",
-		"lines-between-class-members": "off",
-		"camelcase": "off",
-		"no-underscore-dangle": "off",
-		"no-shadow": "off",
-		"no-await-in-loop": "off",
-		"radix": "off",
-		"no-plusplus": "off",
-		"no-promise-executor-return": "off",
-		"import/no-duplicates": "off",
-		"import/prefer-default-export": "off",
-		"import/no-cycle": "off"
-	},
-	"settings": {
-		"import/resolver": {
-			"node": {
-				"extensions": [".js", ".ts"]
-			}
-		}
-	}
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-void": "off",
+    "import/extensions": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "func-names": "off",
+    "consistent-return": "off",
+    "no-restricted-syntax": "off",
+    "@typescript-eslint/indent": "off",
+    "class-methods-use-this": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "lines-between-class-members": "off",
+    "camelcase": "off",
+    "no-underscore-dangle": "off",
+    "no-shadow": "off",
+    "no-await-in-loop": "off",
+    "radix": "off",
+    "no-plusplus": "off",
+    "no-promise-executor-return": "off",
+    "import/no-duplicates": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  }
 }
 ```
 
@@ -129,15 +128,15 @@ static/
 ```js
 /** @type {import("prettier").Config} */
 module.exports = {
-	semi: true,
-	singleQuote: true,
-	trailingComma: 'all',
-	printWidth: 100,
-	tabWidth: 4,
-	useTabs: true,
-	bracketSpacing: true,
-	arrowParens: 'always',
-	endOfLine: 'lf',
+  semi: true,
+  singleQuote: true,
+  trailingComma: 'all',
+  printWidth: 100,
+  tabWidth: 4,
+  useTabs: true,
+  bracketSpacing: true,
+  arrowParens: 'always',
+  endOfLine: 'lf',
 };
 ```
 
@@ -159,15 +158,15 @@ migrations/
 
 ---
 
-## 🧾 Шаг 3: Настройка Husky и pre-commit hook
+## 🧾 Step 3: Set Up Husky and Pre-commit Hook
 
-### Инициализируй Husky
+### Initialize Husky
 
 ```bash
 npx husky
 ```
 
-### Добавь `prepare` скрипт в `package.json`
+### Add `prepare` script to `package.json`
 
 ```json
 "scripts": {
@@ -175,7 +174,7 @@ npx husky
 }
 ```
 
-### Создай `.husky/pre-commit` и вставь:
+### Create `.husky/pre-commit` and add:
 
 ```sh
 #!/bin/sh
@@ -185,7 +184,7 @@ npx lint-staged
 
 ---
 
-### Конфигурация `lint-staged` в `package.json`
+### Configure `lint-staged` in `package.json`
 
 ```json
 "lint-staged": {
@@ -198,18 +197,18 @@ npx lint-staged
 
 ---
 
-### Полезные скрипты в `package.json`
+### Useful Scripts in `package.json`
 
 ```json
 "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "eslint": "eslint . --ext .js,.ts,.tsx,.jsx --fix"
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
+  "eslint": "eslint . --ext .js,.ts,.tsx,.jsx --fix"
 }
 ```
 
 ---
 
-## ✅ Готово!
+## ✅ Done!
 
-Теперь каждый коммит будет автоматически запускать ESLint и Prettier. Код будет проверяться и форматироваться перед тем, как попасть в репозиторий.
+Now, every commit will automatically run ESLint and Prettier. Your code will be linted and formatted before entering the repository.
